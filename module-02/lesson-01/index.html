@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Branching</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      form {
+        max-width: 30%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        border: 2px solid blueviolet;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <input type="number" name="" id="num" /> -->
+    <div class="wrapper">
+      <label for="">Enter user role:</label>
+      <input type="text" id="userName" />
+    </div>
+    <p id="result">None</p>
+
+    <form id="order">
+      <label>
+        Самовивіз
+        <input type="radio" name="option" id="option_1" value="1" checked />
+      </label>
+      <label>
+        Курʼєр
+        <input type="radio" name="option" id="option_2" value="2" />
+      </label>
+      <label>
+        Пошта
+        <input type="radio" name="option" id="option_3" value="3" />
+      </label>
+
+      <button type="submit">Approve</button>
+    </form>
+
+    <p id="answer"></p>
+
+    <!-- <script src="./js/01-branching.js" type="module"></script> -->
+    <!-- <script src="./js/02-scope.js" type="module"></script> -->
+    <!-- <script src="./js/03-tasks.js" type="module"></script> -->
+    <!-- <script src="./js/04-switch.js" type="module"></script> -->
+    <!-- <script src="./js/05-operators.js" type="module"></script> -->
+    <!-- <script src="./js/06-tasks.js" type="module"></script> -->
+
+    <script>
+      // function calculateTotal(number) {
+      //   let count = 0;
+      //   let x = 0;
+
+      //   if (number === 0) {
+      //     return number;
+      //   }
+
+      //   while (x <= number) {
+      //     count += x;
+      //     x++;
+      //   }
+
+      //   return count;
+      // }
+
+      // console.log(calculateTotal(0));
+      // console.log(calculateTotal(1));
+      // console.log(calculateTotal(3));
+      // console.log(calculateTotal(18));
+      // console.log(calculateTotal(24));
+      // function n() {
+      //   console.log("Worked");
+      // }
+
+      // Global scope
+      const n = 100;
+
+      function name() {
+        // Function || Block scope
+        const n = 10;
+      }
+
+      // name();
+      // console.log(n);
+      // console.log(n);
+
+      // n();
+
+      // const unionWithNull1 = false || "Default value";
+      // console.log("unionWithNull1:", unionWithNull1);
+
+      // const unionWithNull = false ?? "Default value";
+      /**
+       * Реагує тільки на null або undefined
+       */
+      // console.log("unionWithNull:", unionWithNull);
+    </script>
+  </body>
+</html>

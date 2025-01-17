@@ -6,9 +6,37 @@
     <title>Functions</title>
   </head>
   <body>
+    <!-- <script>
+      const userName = "Mango";
+    </script> -->
     <!-- <script src="./js/01-args.js" type="module"></script> -->
     <!-- <script src="./js/02-scope.js" type="module"></script> -->
-    <!-- <script src="./js/03-stack.js" type="module"></script> -->
+    <script src="./js/03-stack.js" type="module"></script>
     <!-- <script src="./js/04-tasks.js" type="module"></script> -->
+
+    <script>
+      function checkStorage(storage, item) {
+        const lowerCaseItem = item.toLowerCase();
+
+        for (const item of storage) {
+          if (item.toLowerCase() === lowerCaseItem) {
+            return `${lowerCaseItem} is available to order!`;
+          }
+        }
+
+        return "Sorry! We are out of stock!";
+
+        // if (
+        //   storage.map(product => product.toLowerCase()).includes(lowerCaseItem)
+        // ) {
+        //   return `${lowerCaseItem} is available to order!`;
+        // } else {
+        //   return "Sorry! We are out of stock!";
+        // }
+      }
+
+      const res1 = checkStorage(["apple", "plum", "pear"], "pLuM");
+      // console.log("res1:", res1);
+    </script>
   </body>
 </html>

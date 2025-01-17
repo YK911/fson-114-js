@@ -8,7 +8,15 @@
  * індексом 0 буде виведено 1 - Mango, а для індексу 2 виведе 3 - Ajax.
  */
 
-// function logItems(items) {}
+function logItems() {
+  const args = Array.from(arguments[0]);
+  // console.log(args);
+
+  for (let i = 0; i < args.length; i += 1) {
+    const item = args[i];
+    console.log(`${i + 1} - ${item}`);
+  }
+}
 
 // logItems(["Mango", "Poly", "Ajax"]);
 // logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
@@ -22,12 +30,22 @@
  * гарантовано однакова.
  */
 
-function printInfo(names, phones) {}
+function printInfo(names, phones) {
+  const namesArr = names.split(",");
+  const phonesArr = phones.split(",");
 
-printInfo(
-  "Jacob,William,Solomon,Artemis",
-  "89001234567,89001112233,890055566377,890055566300"
-);
+  for (let i = 0; i < namesArr.length; i++) {
+    const name = namesArr[i];
+    const phone = phonesArr[i];
+
+    console.log(`Contact: ${name}\nPhone number: ${phone}`);
+  }
+}
+
+// printInfo(
+//   "Jacob,William,Solomon,Artemis",
+//   "89001234567,89001112233,890055566377,890055566300"
+// );
 
 /**
  * Напиши функцію formatTime(minutes) яка переведе значення
@@ -35,17 +53,23 @@ printInfo(
  * та хвилин HH:MM.
  */
 
-const hours = Math.floor(totalMinutes / 60);
-const minutes = totalMinutes % 60;
-// console.log(hours);
-// console.log(minutes);
+// console.log("hours", );
+// console.log("minutes", 70 % 60);
 
-const doubleDigitHours = String(hours).padStart(2, 0);
-const doubleDigitMinutes = String(minutes).padStart(2, 0);
-// console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
+function formatTime(minutes) {
+  const hours = Math.trunc(minutes / 60); // скільки годин
 
-function formatTime(minutes) {}
+  minutes %= 60; // скільки хвилин залишається за мінусом годин
+  // 420 - 60 * 7 = 30
+
+  return `${normalizeDigits(hours)}:${normalizeDigits(minutes)}`;
+}
+
+function normalizeDigits(number) {
+  return String(number).padStart(2, "0");
+}
 
 // console.log(formatTime(70)); // "01:10"
 // console.log(formatTime(450)); // "07:30"
 // console.log(formatTime(1441)); // "24:01"
+// console.log(formatTime(360)); // "06:00"

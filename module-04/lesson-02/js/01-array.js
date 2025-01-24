@@ -1,7 +1,7 @@
 /**
  * Масив об'єктів
  *
- * - Перебор масива
+ * - Перебір масива
  * - Пошук об'єкта за значенням властивості
  * - Колекція значень властивості
  */
@@ -10,30 +10,59 @@ const friends = [
   { name: "Mango", online: false },
   { name: "Kiwi", online: true },
   { name: "Poly", online: false },
-  { name: "Ajax", online: false },
+  { name: "Ajax", online: true },
 ];
 
-console.table(friends);
+// console.table(friends);
 
 /**
  * Пошук друга за іменем
  */
-function findFriendByName(allFriends, friendName) {}
+function findFriendByName(allFriends, friendName) {
+  for (const friend of allFriends) {
+    if (friend.name === friendName) {
+      console.log("Success! Friend was found");
+      return friend;
+    }
+  }
+
+  console.log("Error!");
+}
 
 // console.log(findFriendByName(friends, "Poly"));
 // console.log(findFriendByName(friends, "Chelsy"));
 
 /**
- * Отримуємо імена всіх лрузів
+ * Отримуємо імена всіх друзів
  */
-function getAllNames(allFriends) {}
+function getAllNames(allFriends) {
+  const names = [];
+
+  for (let i = 0; i < allFriends.length; i++) {
+    const friend = allFriends[i];
+    names.push(friend.name);
+    // console.log("getAllNames:", friend.name);
+  }
+
+  return names;
+}
 
 // console.log(getAllNames(friends));
 
 /**
  * Отримуємо імена тільки тих друзів, які зараз онлайн
  */
-function getOnlineFriends(allFriends) {}
+function getOnlineFriends(allFriends) {
+  const onlineFriends = [];
+
+  for (const friend of allFriends) {
+    if (friend.online) {
+      onlineFriends.push(friend.name);
+    }
+  }
+
+  return onlineFriends;
+}
 
 // console.log(getOnlineFriends(friends));
 
@@ -50,3 +79,26 @@ const stones = [
   { name: "Сапфір", price: 400, quantity: 7 },
   { name: "Щебінь", price: 200, quantity: 2 },
 ];
+
+function calcTotalPrice(stones, stoneName) {
+  // stones = []
+  // stoneName = "Діамант"
+  // arguments = pseudo []
+  // this
+
+  for (const stone of stones) {
+    if (stone.name === stoneName) {
+      const total = stone.price * stone.quantity;
+      return `Вартість каміння: ${stone.name} складає ${total} у.о`;
+    }
+  }
+
+  return `В крамниці відсутнє каміння - ${stoneName}`;
+
+  // return undefined
+}
+
+const result1 = calcTotalPrice(stones, "Діамант");
+// console.log("result1:", result1);
+const result2 = calcTotalPrice(stones, "Галька");
+// console.log("result2:", result2);

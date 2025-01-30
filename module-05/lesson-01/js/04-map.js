@@ -22,7 +22,7 @@ const allCars = [
  * Нехай функція getModels повертає масив моделей (поле model) всіх автомобілів.
  */
 
-const getModels = cars => {};
+const getModels = cars => cars.map(item => item.model);
 
 // console.table(getModels(allCars));
 
@@ -31,10 +31,14 @@ const getModels = cars => {};
  * значенням властивості price залежно від переданої знижки.
  */
 
-const makeCarsWithDiscount = (cars, discount) => {};
+const makeCarsWithDiscount = (cars, discount) =>
+  cars.map(item => ({
+    ...item,
+    price: item.price * (1 - discount),
+  }));
 
-console.table(makeCarsWithDiscount(allCars, 0.2));
-console.table(makeCarsWithDiscount(allCars, 0.4));
+// console.table(makeCarsWithDiscount(allCars, 0.2));
+// console.table(makeCarsWithDiscount(allCars, 0.4));
 
 const players = [
   { id: "player-1", name: "Mango", timePlayed: 310, points: 54, online: false },
@@ -51,6 +55,19 @@ const players = [
 
 const playerIdToUpdate = "player-3";
 
-const updatedPlayers = players.map(player => {});
+// const updatedPlayers = players.map(player => {
+//   if (player.id === playerIdToUpdate) {
+//     return { ...player, timePlayed: player.timePlayed + 100 };
+//   }
 
-// console.log(updatedPlayers);
+//   return { ...player };
+// });
+
+const updatedPlayers = players.map(player =>
+  player.id === playerIdToUpdate
+    ? { ...player, timePlayed: player.timePlayed + 100 }
+    : { ...player }
+);
+
+// console.table(updatedPlayers);
+// console.table(players);

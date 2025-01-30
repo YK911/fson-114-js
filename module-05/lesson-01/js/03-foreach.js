@@ -8,45 +8,74 @@
 const numbers = [5, 10, 15, 20, 25];
 let total = 0;
 
+// for (const number of numbers) {
+//   total += number;
+// }
+
+numbers.forEach(number => (total += number));
+
 // console.log(total);
 
 /**
- * Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+ * Виконайте рефакторинг коду за допомогою методу forEach та стрілочної функції.
  */
+// function logItems(items) {
+//   console.log(items);
+//   for (let i = 0; i < items.length; i += 1) {
+//     console.log(`${i + 1} - ${items[i]}`);
+//   }
+// }
+
 function logItems(items) {
-  // console.log(items);
-  for (let i = 0; i < items.length; i += 1) {
-    // console.log(`${i + 1} - ${items[i]}`);
-  }
+  items.forEach((item, index) => console.log(`${index + 1} - ${item}`));
 }
 
 // logItems(["Mango", "Poly", "Ajax"]);
+// console.log("\n");
+
 // logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
 
 /**
- * Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+ * Виконайте рефакторинг коду за допомогою методу forEach та стрілочної функції.
  */
+// function printContactsInfo({ names, phones }) {
+//   const nameList = names.split(",");
+//   const phoneList = phones.split(",");
+//   for (let i = 0; i < nameList.length; i += 1) {
+//     console.log(`${nameList[i]}: ${phoneList[i]}`);
+//   }
+// }
+
 function printContactsInfo({ names, phones }) {
   const nameList = names.split(",");
   const phoneList = phones.split(",");
-  for (let i = 0; i < nameList.length; i += 1) {
-    // console.log(`${nameList[i]}: ${phoneList[i]}`);
-  }
+  nameList.forEach((name, index, array) => {
+    console.log(`${name}: ${phoneList[index]}`);
+  });
 }
 
-printContactsInfo({
-  names: "Jacob,William,Solomon,Artemis",
-  phones: "89001234567,89001112233,890055566377,890055566300",
-});
+// printContactsInfo({
+//   names: "Jacob,William,Solomon,Artemis",
+//   phones: "89001234567,89001112233,890055566377,890055566300",
+// });
 
 /**
- * Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+ * Виконайте рефакторинг коду за допомогою методу forEach та стрілочної функції.
  */
+// function calculateAverage(...args) {
+//   let total = 0;
+//   for (let i = 0; i < args.length; i++) {
+//     total += args[i];
+//   }
+//   return total / args.length;
+// }
 function calculateAverage(...args) {
   let total = 0;
-  for (let i = 0; i < args.length; i++) {
-    total += args[i];
-  }
+
+  args.forEach((element, index, array) => {
+    array[index] = element ** 2;
+  });
+
   return total / args.length;
 }
 

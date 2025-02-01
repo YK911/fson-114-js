@@ -10,29 +10,34 @@
  * - приводить елементи до рядка і сортує за [Unicode](https://unicode-table.com/en/)
  */
 
-const numbers = [1, 9, 6, 2, 3];
+const numbers = [1, 9, 6, 2, 3, 11];
 
-const sorted = numbers.toSorted();
-console.log("sorted ", sorted);
+// const sorted = numbers.toSorted();
+// const sorted = numbers.sort();
+// console.log("sorted ", sorted);
 
 const letters = ["b", "B", "a", "A"];
-console.log("letters", letters.toSorted());
+// console.log("letters", letters.toSorted());
+
+// console.log("a".localeCompare("b"));
+// console.log("b".localeCompare("a"));
+// console.log("a".localeCompare("a"));
 
 /**
  * compareFunction - функція порівняння (callback)
  * Елементи масиву сортуються відповідно до її значення, що повертається
  */
 
-console.log(
-  numbers.toSorted((curEl, nextEl) => {
-    return nextEl - curEl;
-  })
-);
+// console.log(
+//   numbers.toSorted((curEl, nextEl) => {
+//     return curEl - nextEl;
+//   })
+// );
 
 const descSortedNumbers = numbers.toSorted((a, b) => b - a);
 const ascSortedNumbers = numbers.toSorted((a, b) => a - b);
-console.log("descSortedNumbers", descSortedNumbers);
-console.log("ascSortedNumbers", ascSortedNumbers);
+// console.log("descSortedNumbers", descSortedNumbers);
+// console.log("ascSortedNumbers", ascSortedNumbers);
 
 /**
  * Сортування масиву об'єктів
@@ -44,29 +49,30 @@ const players = [
   { id: "player-4", name: "Ajax", timePlayed: 150, online: false },
   { id: "player-5", name: "Chelsey", timePlayed: 80, online: true },
 ];
+console.table(players);
 
 // За ігровим часом
-const sortedByBestPlayers = players.toSorted(
-  (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed
-);
-console.table(sortedByBestPlayers);
+const sortedByBestPlayers = players.toSorted((currentPlayer, nextPlayer) => {
+  return nextPlayer.timePlayed - currentPlayer.timePlayed;
+});
+// console.table(sortedByBestPlayers);
 
-const sortedByWorstPlayers = players.toSorted(
-  (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed
-);
-console.table(sortedByWorstPlayers);
+const sortedByWorstPlayers = players.toSorted((currentPlayer, nextPlayer) => {
+  return currentPlayer.timePlayed - nextPlayer.timePlayed;
+});
+// console.table(sortedByWorstPlayers);
 
 // По першій літері имені
-const byName = players.toSorted((a, b) => {
-  const result = a.name[0] > b.name[0];
+const byName = players.toSorted((currentPlayer, nextPlayer) => {
+  // const result = currentPlayer.name[0] > nextPlayer.name[0];
+  // if (result) {
+  //   return 1;
+  // }
+  // if (!result) {
+  //   return -1;
+  // }
 
-  if (result) {
-    return 1;
-  }
-
-  if (!result) {
-    return -1;
-  }
+  return currentPlayer.name.localeCompare(nextPlayer.name);
 });
 
-console.table(byName);
+// console.table(byName);

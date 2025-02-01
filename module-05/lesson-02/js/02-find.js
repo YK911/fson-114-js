@@ -7,7 +7,7 @@
 
 const numbers = [5, 10, 15, 20, 25];
 
-const number = numbers.find(number => number === 10);
+const number = numbers.find(number => number === 25);
 // console.log(number);
 
 /**
@@ -80,6 +80,14 @@ const cars = [
   },
   {
     make: "Ford",
+    model: "F-150",
+    type: "e-pickup",
+    amount: 1,
+    price: 70110,
+    onSale: true,
+  },
+  {
+    make: "Ford",
     model: "Fusion",
     type: "sedan",
     amount: 13,
@@ -95,21 +103,22 @@ const cars = [
     onSale: false,
   },
 ];
+// console.table(cars);
 
 /**
  * Шукаємо машину за моделлю
  */
-const getCarByModel = (cars, model) => {};
+const getCarByModel = (cars, model) => cars.find(car => car.model === model);
 
-console.log(getCarByModel(allCars, "F-150"));
-console.log(getCarByModel(allCars, "CX-9"));
-console.log(getCarByModel(allCars, "Cayenne"));
+// console.log(getCarByModel(cars, "F-150"));
+// console.log(getCarByModel(cars, "CX-9"));
+// console.log(getCarByModel(cars, "Cayenne"));
 
 /**
  * Шукаємо машину за типом кузова
  */
-const getCarByType = (cars, type) => {};
+const getCarByType = (cars, type) => cars.find(car => car.type === type);
 
-console.log(getCarByType(allCars, "sedan"));
-console.log(getCarByType(allCars, "truck"));
-console.log(getCarByType(allCars, "tank"));
+// console.log(getCarByType(cars, "sedan"));
+// console.log(getCarByType(cars, "truck"));
+// console.log(getCarByType(cars, "tank"));

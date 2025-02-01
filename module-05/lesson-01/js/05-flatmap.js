@@ -3,30 +3,40 @@
  */
 
 const tweets = [
-  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  {
+    id: "000",
+    likes: 5,
+    tags: ["js", "nodejs"],
+  },
   { id: "001", likes: 2, tags: ["html", "css"] },
   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
   { id: "003", likes: 8, tags: ["css", "react"] },
   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
 ];
 
-const tags = tweets;
+const tags = tweets.flatMap((tweet, index, array) => {
+  return tweet.tags;
+});
 // console.log(tags);
 
-// const obj = { id: "000", likes: 5, labels: { item1: "js", item2: "nodejs" } };
+const updatedTweets = tweets.map((tweet, index, array) => {
+  // tweet.likes += 1
+  return {
+    ...tweet,
+    likes: tweet.likes + 1,
+    tags: tweet.tags.slice(0, -1),
+  };
+});
+// console.log("updatedTweets  updatedTweets:", updatedTweets);
+// console.log("ORIGINAL:", tweets);
+const url =
+  "https://pixabay.com/api/?key=15249615-5ccf49bef51d4f01888f64cb2&q=yellow+flowers&image_type=photo";
 
-// console.log(obj?.tags?.item1 ? obj?.tags?.item1 : "sorry property not found");
-
-const students = [
-  { name: "Mango", score: 83, courses: ["mathematics", "physics"] },
-  { name: "Poly", score: 59, courses: ["science", "mathematics"] },
-  { name: "Ajax", score: 37, courses: ["physics", "biology"] },
-  { name: "Kiwi", score: 94, courses: ["literature", "science"] },
-];
-
-const uniqueSortedCourses = students
-  .flatMap(student => student.courses)
-  .filter((course, index, array) => array.indexOf(course) === index)
-  .toSorted((a, b) => a.localeCompare(b));
-
-// console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathematics", "physics"]
+fetch(url)
+  .then(resp => {
+    return resp.json();
+  })
+  .then(data => {
+    const tags = data.hits[0].tags.split(",");
+    console.log("tags:", tags);
+  });

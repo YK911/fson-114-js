@@ -8,10 +8,13 @@
  *    - якщо коллбек повернув false елемент НЕ додається в масив, що повертається
  */
 
-const numbers = [5, 10, 15, 20, 25];
+const numbers = [5, 10, 15, 20, 25, 0];
 
-const filteredNumbers = numbers.filter(number => number < 10);
-console.log(filteredNumbers);
+const filteredNumbers = numbers.filter(number => {
+  // console.log(number > 101);
+  return number > 101 || number === 0;
+});
+// console.log(filteredNumbers);
 
 /**
  * ---------------------------
@@ -104,26 +107,53 @@ const allCars = [
  * значення параметра threshold.
  */
 
-const filterByPrice = (cars, threshold) => {};
+const filterByPrice = (cars, threshold) =>
+  cars.filter(car => car.price < threshold);
 
-console.table(filterByPrice(allCars, 30000));
-console.table(filterByPrice(allCars, 25000));
+console.table(allCars, 30000);
+// console.table(filterByPrice(allCars, 30000));
+// console.table(filterByPrice(allCars, 25000));
 
 /**
  * Нехай функція getCarsWithDiscount повертає масив автомобілів
  * властивість onSale яких true.
  */
 
-const getCarsWithDiscount = cars => {};
+const getCarsWithDiscount = cars => cars.filter(car => car.onSale);
 
-console.table(getCarsWithDiscount(allCars));
+// console.table(getCarsWithDiscount(allCars));
 
 /**
  * Нехай функція getCarsWithType повертає масив автомобілів тип яких збігається
  * зі значенням параметра type.
  */
 
-const getCarsWithType = (cars, type) => {};
+const getCarsWithType = (cars, type) => cars.filter(car => car.type === type);
 
-console.table(getCarsWithType(allCars, "suv"));
-console.table(getCarsWithType(allCars, "sedan"));
+// console.table(getCarsWithType(allCars, "suv"));
+// console.table(getCarsWithType(allCars, "sedan"));
+
+const getCarsWithTypeAndPrice = (cars, type, threshold) => {
+  let totalPrice = 0;
+  // cars
+  //   .filter(car => car.type === type)
+  //   .filter(car => car.price < threshold)
+  //   .forEach(car => {
+  //     totalPrice += car.price;
+  //   });
+  const res = cars.filter(car => car.type === type && car.price < threshold);
+  // console.log("getCarsWithTypeAndPrice:", res);
+  return totalPrice;
+};
+
+const result = getCarsWithTypeAndPrice(allCars, "suv", 32_000);
+console.log("result:", result);
+
+const searchedCarName = carName.value;
+console.log("searchedCarName:", searchedCarName);
+
+const findCarByName = (cars, search) =>
+  cars.find(car => car.model.toLowerCase() === search.toLowerCase());
+
+const res = findCarByName(allCars, searchedCarName);
+console.log("res:", res);

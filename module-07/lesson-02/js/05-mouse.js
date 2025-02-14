@@ -6,3 +6,7 @@
  */
 
 const boxRef = document.querySelector(".js-box");
+
+boxRef.addEventListener("mousemove", event => {
+  console.log("Coords: ", event.screenX, event.screenY);
+});

@@ -24,3 +24,86 @@ input {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
+/* Task 1 */
+.box {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-color: tomato;
+
+  transition: 150ms linear;
+}
+
+.feedback-form {
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 500px;
+  border: 1px solid darkblue;
+  border-radius: 10px;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input {
+      flex-basis: 50%;
+    }
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    height: 120px;
+    resize: none;
+    margin-bottom: 20px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+}
+
+.task-6 {
+  font-family: sans-serif;
+
+  .car-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    margin-bottom: 40px;
+  }
+
+  .car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .car-item {
+    width: calc((100% - 24px * 2) / 3);
+    padding: 20px;
+    border: 2px solid darkslateblue;
+    border-radius: 10px;
+  }
+  .car-item-ill {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .car-item-info {
+  }
+  .car-item-price {
+  }
+}

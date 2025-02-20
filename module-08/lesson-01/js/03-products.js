@@ -42,5 +42,54 @@ const products = [
     description: "10-inch tablet with high performance and a Retina display.",
   },
 ];
+// Added loader
+const loader = document.querySelector(".loader-wrapper");
+setTimeout(() => {
+  loader.classList.add("is-hidden");
+}, 500);
 
 const container = document.querySelector(".products");
+// Render
+container.insertAdjacentHTML("beforeend", createCardsMarkup(products));
+// Delegation
+container.addEventListener("click", handlerProductClick);
+
+function createCardsMarkup(cards) {
+  return cards
+    .map(card => {
+      return `<li class="item js-product-item" data-id="${card.id}">
+            <img
+              src="${card.img}"
+              alt="${card.name}: ${card.description}"
+            />
+            <div>
+              <h3>${card.name}</h3>
+              <p>Price: ${card.price} uah</p>
+            </div>
+          </li>`;
+    })
+    .join("");
+}
+
+function handlerProductClick(event) {
+  // click on ul
+  if (event.target === event.currentTarget) {
+    return;
+  }
+
+  const currentProduct = event.target.closest(".js-product-item");
+  const id = Number(currentProduct.dataset.id);
+  const product = products.find(product => {
+    return product.id === id;
+  });
+
+  const instance = basicLightbox.create(`
+    <div class="modal">
+      <img src="${product.img}" alt="${product.desc}" />
+      <h3>${product.name}</h3>
+      <h4>${product.price}</h4>
+      <p>${product.description}</p>
+    </div>`);
+
+  instance.show();
+}

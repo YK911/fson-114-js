@@ -1,11 +1,15 @@
 .box {
   width: 100px;
   height: 100px;
+  border-radius: 10px;
 }
 
 .container {
   display: flex;
   justify-content: space-around;
+  padding: 20px;
+  outline: 2px solid red;
+  outline-offset: -2px;
 }
 
 .red {
@@ -23,7 +27,7 @@
 .box-red {
   width: 300px;
   height: 300px;
-  background-color: red;
+  background-color: #ff0000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +36,7 @@
 .box-green {
   width: 200px;
   height: 200px;
-  background-color: green;
+  background-color: #008000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +46,7 @@
 .box-black {
   width: 100px;
   height: 100px;
-  background-color: black;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;

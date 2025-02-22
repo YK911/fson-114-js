@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/the-new-css-reset@1.11.3/css/reset.min.css"
+    />
+    <!-- Slider -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <p>HEADER</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-left-side">
+            <h1 class="hero-title">
+              Learn to Cook
+              <span class="accent">Tasty Treats'</span> Customizable Masterclass
+            </h1>
+            <p class="hero-desc">
+              TastyTreats - Customize Your Meal with Ingredient Options and
+              Step-by-Step Video Guides.
+            </p>
+            <button class="hero-btn" type="button">Order now</button>
+          </div>
+
+          <div class="hero-right-side">
+            <div class="swiper hero-slider js-hero-slider">
+              <!-- Additional required wrapper -->
+              <ul class="swiper-wrapper">
+                <!-- Slides -->
+                <!-- <li class="swiper-slide">
+                  <div class="left">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="middle">
+                    <img src="" alt="" />
+                    <h3></h3>
+                    <p></p>
+                  </div>
+                  <div class="right">
+                    <img src="" alt="" />
+                  </div>
+                </li>
+                <li class="swiper-slide">Slide 2</li>
+                <li class="swiper-slide">Slide 3</li> -->
+              </ul>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script src="./js/main.js" type="module" defer></script>
+  </body>
+</html>

@@ -7,6 +7,11 @@ const heroSliderOptions = {
   pagination: {
     el: ".swiper-pagination",
   },
+  autoplay: {
+    delay: 5000,
+  },
+  slidesPerView: 1,
+  spaceBetween: 24,
 };
 const swiper = new Swiper(sliderContainer, heroSliderOptions);
 
@@ -39,7 +44,9 @@ function createSlidesMarkup(slidesData) {
                     <img src="${imgWebpUrl}" alt="${name}" />
                   </div>
                   <div class="middle">
-                    <img src="${previewWebpUrl}" alt="${topicName}" />
+                    <div>
+                      <img src="${previewWebpUrl}" alt="${topicName}" />
+                    </div>
                     <h3>${topicName}</h3>
                     <p>${area}</p>
                   </div>

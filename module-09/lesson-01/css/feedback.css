@@ -1,5 +1,9 @@
 .feedback-form {
   width: 480px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 10px;
 }
 
 .feedback-form > label {
@@ -18,4 +22,8 @@
 
 .feedback-form textarea {
   resize: none;
+}
+.feedback-form button {
+  width: 100%;
+  height: 46px;
 }

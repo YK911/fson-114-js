@@ -4,7 +4,7 @@
 
 2. Розберемо:
 
-   - Що таке збирач проекту на прикладі [Vite] (https://vitejs.dev/)
+   - Що таке збирач проекту на прикладі [Vite](https://vitejs.dev/)
    - Пакетний менеджер npm
    - Використання Vite-збірки
      [vanilla-app-template](https://github.com/goitacademy/vanilla-app-template)

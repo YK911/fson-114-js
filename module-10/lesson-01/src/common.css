@@ -28,7 +28,7 @@ img {
 
 .alert {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   margin: 0;
   background-color: #fff;
@@ -85,6 +85,12 @@ img {
   cursor: pointer;
   font-size: 24px;
   border-radius: 3px;
+}
+.timer-btn:hover {
+  background-color: #3f88b5;
+}
+.timer-btn:active {
+  background-color: #8a3fb5;
 }
 
 .timer-btn.is-active {

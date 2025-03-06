@@ -6,11 +6,49 @@ import "../common.css";
  */
 
 class Timer {
-  constructor() {}
+  constructor({ onTick }) {
+    this.intervalId = null;
+    this.isActive = false;
+    this.onTick = onTick;
 
-  start() {}
+    this.init();
+  }
 
-  stop() {}
+  init() {
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
+
+  start() {
+    if (this.isActive) {
+      return;
+    }
+
+    const startTime = Date.now();
+    this.isActive = true;
+
+    this.intervalId = setInterval(() => {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - startTime;
+      const time = this.getTimeComponents(deltaTime);
+
+      this.onTick(time);
+    }, 1000);
+  }
+
+  stop() {
+    if (this.isActive) {
+      clearInterval(this.intervalId);
+      this.isActive = false;
+
+      stopBtn.textContent = "Reset";
+      return;
+    }
+
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+    stopBtn.textContent = "Stop";
+  }
 
   /**
    * - Приймає час в мілісекундах
@@ -44,13 +82,12 @@ const timer = new Timer({
   onTick: updateClockface,
 });
 
-// startBtn.addEventListener("click", timer.start.bind(timer));
-// stopBtn.addEventListener("click", timer.stop.bind(timer));
+startBtn.addEventListener("click", timer.start.bind(timer));
+stopBtn.addEventListener("click", timer.stop.bind(timer));
 
 /**
- * - Приймає час в мілісекундах
- * - Вираховує скільки в них вміщається годин/хвилин/секунд
- * - Рисує інтерфейс
+ * - Приймає час як обʼєкт з годинами/хвилинами/секундами
+ * - Рендерить інтерфейс
  */
 function updateClockface({ hours, mins, secs }) {
   clockface.textContent = `${hours}:${mins}:${secs}`;

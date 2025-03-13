@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheCatAPI practice</title>
+  </head>
+  <body>
+    <p>
+      <a href="index.html">← Go Back </a>
+    </p>
+
+    <div class="wrapper">
+      <!-- Форма пошуку -->
+      <form id="search-form" class="search-form">
+        <div class="form-group">
+          <label for="breed-input">Оберіть породу кота:</label>
+          <input
+            list="breeds-list"
+            id="breed-input"
+            class="input-field"
+            placeholder="Наприклад: Bengal"
+            autocomplete="off"
+          />
+          <datalist id="breeds-list"></datalist>
+        </div>
+
+        <button type="submit" class="btn">Знайти зображення</button>
+      </form>
+
+      <!-- Лоадер -->
+      <div id="loader" class="loader hidden">
+        <p>Завантаження...</p>
+      </div>
+    </div>
+
+    <!-- Контейнер для картки -->
+    <div id="cat-card" class="card-container"></div>
+
+    <script src="src/js/03-practice.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Основні стилі сторінки */
+body {
+  padding: 20px;
+  text-align: center;
+
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  background-color: #f4f4f4;
+  color: #2a2a2a;
+}
+
+/* Обгортка */
+.wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Форма пошуку */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Група інпуту */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Поле вводу */
+.input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Кнопка */
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Лоадер */
+.loader {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Ховаємо елементи */
+.hidden {
+  display: none;
+}
+
+/* Контейнер для картки */
+.card-container {
+  margin-top: 20px;
+}
+
+/* Картка */
+.card {
+  max-width: 400px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}

@@ -1,3 +1,7 @@
+import "./axiosConfig/config";
+import { breedRefs } from "./refs";
+
+import { fetchBreeds, fetchCatInfo } from "./axiosConfig/services";
 import "../common.css";
 
 /**
@@ -15,3 +19,63 @@ import "../common.css";
  *
  * 5) Під час запиту під формую відображається loader
  */
+
+// Axios config
+
+fetchBreeds();
+breedRefs.form.addEventListener("submit", onSubmit);
+
+// Functions
+
+function renderCatCard({ name, image }) {
+  breedRefs.card.innerHTML = `<div class="card">
+        <img
+          src="${image}"
+          class="card-image"
+          alt="${name}"
+        />
+        <div class="card-body">
+          <h2 class="card-title">${name}</h2>
+        </div>
+      </div>`;
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+
+  const { breedInput } = form.elements;
+
+  const selectedBreed = [...breedRefs.list.options].find(
+    option => option.value === breedInput.value
+  );
+
+  const breedId = selectedBreed?.dataset?.id;
+
+  const options = {
+    params: {
+      breed_ids: breedId,
+    },
+  };
+  breedRefs.loader.classList.remove("hidden");
+  breedRefs.card.innerHTML = "";
+
+  fetchCatInfo(options)
+    .then(catInfo => {
+      if (catInfo[0].breeds.length === 0) {
+        throw new Error("Зображення не знайдено 🫠");
+      }
+
+      renderCatCard({
+        name: catInfo[0].breeds[0].name,
+        image: catInfo[0].url,
+      });
+    })
+    .catch(msg => {
+      alert(msg);
+    })
+    .finally(() => {
+      form.reset();
+      breedRefs.loader.classList.add("hidden");
+    });
+}

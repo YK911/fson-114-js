@@ -15,14 +15,21 @@
       <form id="search-form" class="search-form">
         <div class="form-group">
           <label for="breed-input">Оберіть породу кота:</label>
+
           <input
             list="breeds-list"
             id="breed-input"
             class="input-field"
             placeholder="Наприклад: Bengal"
             autocomplete="off"
+            name="breedInput"
           />
-          <datalist id="breeds-list"></datalist>
+
+          <datalist id="breeds-list">
+            <!-- <option value="abys">Abyssinian</option>
+            <option value="aege">Aegean</option> -->
+            <!-- <option value="abob">American Bobtail</option> -->
+          </datalist>
         </div>
 
         <button type="submit" class="btn">Знайти зображення</button>
@@ -35,7 +42,7 @@
     </div>
 
     <!-- Контейнер для картки -->
-    <div id="cat-card" class="card-container"></div>
+    <div id="cat-card" class="card-container"> </div>
 
     <script src="src/js/03-practice.js" type="module"></script>
   </body>

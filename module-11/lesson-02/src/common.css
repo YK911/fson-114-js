@@ -112,3 +112,24 @@ body {
   font-weight: bold;
   margin: 10px 0;
 }
+/* #region TODOS */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 0;
+  list-style-type: none;
+}
+.todo-item {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid darkblue;
+  background-color: lightblue;
+  color: darkblue;
+
+  &.not-completed {
+    text-decoration: line-through;
+  }
+}
+/* #endregion */

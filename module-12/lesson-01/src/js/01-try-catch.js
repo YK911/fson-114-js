@@ -1,4 +1,4 @@
-import "../common.css";
+// import "../common.css";
 
 /**
  * Обробка помилок з try...catch
@@ -15,3 +15,23 @@ import "../common.css";
  *  - stack
  * - Блок catch без об'єкта помилки
  */
+
+console.log("Before try...catch");
+
+try {
+  // const response = await fetch("https://jsonplaceholde.typicode.com/users");
+  // console.log(" response:", response);
+
+  // fetch("https://jsonplaceholde.typicode.com/users").then(resp =>
+  //   console.log(resp)
+  // )
+
+  const string = "Str";
+  JSON.parse(string);
+
+  console.log("Result");
+} catch {
+  console.log("Somethong went wrong");
+}
+
+console.log("After try...catch");

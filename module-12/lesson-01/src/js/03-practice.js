@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "./config";
 import "../common.css";
 
 /**
@@ -7,10 +8,9 @@ import "../common.css";
  * Переписуємо на async/await
  */
 
-function fetchPokemon(pokemonId) {
-  return axios
-    .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-    .then(response => response.data);
+async function fetchPokemon(pokemonId) {
+  const { data } = await axios.get(`${BASE_URL}/pokemon/${pokemonId}`);
+  return data;
 }
 
 const cardContainer = document.querySelector(".card-container");
@@ -18,16 +18,20 @@ const searchForm = document.querySelector(".search-form");
 
 searchForm.addEventListener("submit", onSearch);
 
-function onSearch(e) {
+async function onSearch(e) {
   e.preventDefault();
 
   const form = e.currentTarget;
   const searchQuery = form.elements.query.value.toLowerCase();
 
-  fetchPokemon(searchQuery)
-    .then(renderPokemonCard)
-    .catch(onFetchError)
-    .finally(() => form.reset());
+  try {
+    const pokemonInfo = await fetchPokemon(searchQuery);
+    renderPokemonCard(pokemonInfo);
+  } catch (error) {
+    onFetchError();
+  }
+
+  form.reset();
 }
 
 function renderPokemonCard({ name, sprites, weight, height, abilities }) {
